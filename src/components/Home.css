@@ -1,6 +1,6 @@
 .container {
     width: 320px;
-    height: 500px;
+    height: 600px;
     border-radius: 16px;
     color: white;
 
@@ -40,8 +40,9 @@
     border-radius: 16px;
     font-size: 15px;
     font-weight: 500;
-    text-align: center;
+    text-align: flex-start;
     color: black;
+    text-transform: uppercase;
 }
 
 .background {
@@ -70,11 +71,40 @@
     flex-direction: column;
 }
 
+.city {
+    text-transform: uppercase;
+}
+
 .cont_temp {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+}
 
-    
+.temp {
+    font-size: 80px;
+    /* margin-left: 25.61px; */
+}
+
+.desc {
+    font-size: 25px;
+    text-transform: capitalize;
+}
+
+.imagem {
+    width: 280px;
+}
+
+.cont_search {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border-radius: 16px;
+    padding-right: 8px;
+}
+
+#search {
+    cursor: pointer;
 }

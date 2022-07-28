@@ -7,9 +7,11 @@ import Home from './components/Home';
 
 function App() {
 
+  const [inputCity, setInputCity] = useState('')
   const [city, setCity] = useState()
   const [desc, setDesc] = useState()
   const [temp, setTemp] = useState()
+
 
   const url = 
   'https://api.openweathermap.org/data/2.5/weather?q='
@@ -17,12 +19,12 @@ function App() {
   useEffect(() => {
 
     const fetchApi = async () => {
-      const {data} = await axios.get(`${url}Caraúbas&appid=2bdef8885b55003598b381a2dc578987&lang=pt_br&units=metric`)
+      const {data} = await axios.get(`${url}Brasília&appid=2bdef8885b55003598b381a2dc578987&lang=pt_br&units=metric`)
 
       console.log(data)
       setCity(data.name)
+      setTemp(Math.ceil(data.main.temp))
       setDesc(data.weather[0].description)
-      setTemp(data.main.temp)
     }
 
 
@@ -36,8 +38,12 @@ function App() {
         <Route path='/' exact 
         element={<Home 
         city={city}
+        setCity={setCity}
         desc={desc}
-        temp={temp} />} />
+        setDesc={setDesc}
+        temp={temp}
+        setTemp={setTemp}
+        url={url} />} />
       </Routes>
     </Router>
   );
