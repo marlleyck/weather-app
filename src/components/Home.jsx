@@ -7,15 +7,22 @@ import './Home.css'
 
 const Home = ({city, desc, temp, setCity, setDesc, setTemp, url}) => {
 
-    const [input, setInput] = useState()
+    const [input, setInput] = useState('')
 
-    const handleClickInput = async (e) => {
-        const {data} = await axios.get(`${url}${input}&appid=2bdef8885b55003598b381a2dc578987&lang=pt_br&units=metric`)
+    const [country, setCountry] = useState('BR')
 
-        setCity(data.name)
-        setTemp(Math.ceil(data.main.temp))
-        setDesc(data.weather[0].description)
-        setInput('')
+    const handleClickInput = async () => {
+        if (input == '' || country == '') {
+            alert('Complete todos os dados para prosseguir!')
+        } else {
+            const {data} = await axios.get(`${url}${input},${country}&appid=2bdef8885b55003598b381a2dc578987&lang=pt_br&units=metric`)
+
+            setCity(data.name)
+            setTemp(Math.ceil(data.main.temp))
+            setDesc(data.weather[0].description)
+            setInput('')
+        }
+
     }
 
     const handleKeyDown = (e) => {
@@ -38,14 +45,23 @@ const Home = ({city, desc, temp, setCity, setDesc, setTemp, url}) => {
                 </div>
 
                 <div className='cont_search'>
-                    <input type="text" 
-                    placeholder='Digite uma cidade'
-                    onChange={(e) => setInput(e.target.value)}
-                    onKeyDown={handleKeyDown}
-                    value={input} />
+                    <div className='city_name'>
+                        <input type="text"
+                        placeholder='Digite uma cidade'
+                        onChange={(e) => setInput(e.target.value)}
+                        onKeyDown={handleKeyDown}
+                        value={input} />
+                        <FiSearch size={30} color='#000' id='search'
+                        onClick={handleClickInput} />
+                    </div>
 
-                    <FiSearch size={30} color='#000' id='search'
-                    onClick={handleClickInput} />
+                    <div className='country_code'>
+                        <label htmlFor="city">Código do País</label>
+                        <input type="text"
+                        id='city'
+                        value={country}
+                        onChange={(e) => setCountry(e.target.value.toUpperCase())}/>
+                    </div>
                 </div>
             </main>
 

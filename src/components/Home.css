@@ -1,6 +1,6 @@
 .container {
     width: 320px;
-    height: 600px;
+    height: 630px;
     border-radius: 16px;
     color: white;
 
@@ -15,8 +15,9 @@
 
 .main {
     width: 90%;
-    height: 90%;
+    height: 93%;
     border-radius: 16px;
+    padding-bottom: 10px;
 
     position: absolute;
     top: 5%;
@@ -26,8 +27,7 @@
     justify-content: space-around;
     flex-direction: column;
 
-    background-image: linear-gradient(#5E4FD6 60%, #7F6BE4 85%);
-    backdrop-filter: blur(7px);
+    background-image: linear-gradient(#5E4FD6 45%, #7F6BE4 75%);
 
     z-index: 2;
 }
@@ -36,7 +36,8 @@
     border: none;
     outline: none;
 
-    padding: 16px;
+    width: 100%;
+    padding: 12px;
     border-radius: 16px;
     font-size: 15px;
     font-weight: 500;
@@ -96,15 +97,54 @@
     width: 280px;
 }
 
-.cont_search {
+.city_name {
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: white;
     border-radius: 16px;
+    
     padding-right: 8px;
+
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.cont_search {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.country_code {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.country_code label {
+    text-transform: uppercase;
+    margin-bottom: 5px;
+
+}
+
+#city {
+    width: 65px;
+    text-align: center;
 }
 
 #search {
     cursor: pointer;
+}
+
+@media (max-width: 352px) {
+    .container {
+        width: 280px;
+    }
+
+    .main {
+        padding: 10px;
+    }
 }

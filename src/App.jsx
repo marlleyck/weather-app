@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom'
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 import { useEffect, useState } from 'react';
 
 import Home from './components/Home';
@@ -7,7 +7,6 @@ import Home from './components/Home';
 
 function App() {
 
-  const [inputCity, setInputCity] = useState('')
   const [city, setCity] = useState()
   const [desc, setDesc] = useState()
   const [temp, setTemp] = useState()
