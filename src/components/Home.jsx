@@ -68,7 +68,6 @@ const Home = ({city, desc, temp, setCity, setDesc, setTemp, url}) => {
         } else {
             const {data} = await axios.get(`${url}${input},${country}&appid=2bdef8885b55003598b381a2dc578987&lang=pt_br&units=metric`)
 
-            console.log(data)
             setCity(data.name)
             setTemp(Math.ceil(data.main.temp))
             setDesc(data.weather[0].description)
